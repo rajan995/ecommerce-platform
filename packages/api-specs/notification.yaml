@@ -1,0 +1,105 @@
+openapi: 3.0.0
+info:
+  title: Notification Service
+  version: 1.0.0
+  description: User Notification and Communication Service
+paths:
+  /api/v1/notifications/send:
+    post:
+      summary: Send a notification (Internal only)
+      tags: [Notification]
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationRequest'
+      responses:
+        '200':
+          description: Notification sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationResponse'
+  /api/v1/notifications:
+    get:
+      summary: Get user notification history
+      tags: [Notification]
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: List of notifications retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationListResponse'
+  /api/v1/notifications/{id}/read:
+    patch:
+      summary: Mark notification as read
+      tags: [Notification]
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadStatusRequest'
+      responses:
+        '200':
+          description: Status updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationResponse'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    NotificationRequest:
+      type: object
+      required: [userId, type, message]
+      properties:
+        userId: { type: string }
+        type: { type: string, enum: [EMAIL, SMS, PUSH] }
+        message: { type: string }
+        payload: { type: object }
+    NotificationResponse:
+      type: object
+      properties:
+        id: { type: string }
+        userId: { type: string }
+        type: { type: string }
+        message: { type: string }
+        read: { type: boolean }
+        createdAt: { type: string, format: date-time }
+    NotificationListResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/Notification'
+    ReadStatusRequest:
+      type: object
+      required: [read]
+      properties:
+        read: { type: boolean }
+    Notification:
+      type: object
+      properties:
+        id: { type: string }
+        userId: { type: string }
+        type: { type: string, enum: [EMAIL, SMS, PUSH] }
+        message: { type: string }
+        read: { type: boolean }
+        createdAt: { type: string, format: date-time }
