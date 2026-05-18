@@ -13,7 +13,8 @@ A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and
 - **Payment:** Razorpay
 - **DevOps:** Terraform, AWS EKS, S3, Jenkins, Grafana/Prometheus
 
-## Architecture Decisions
+## Architecture Decisions & ADRs
+- Detailed Architecture Decision Records (ADRs) are maintained in the `decisions/` folder.
 - **Monorepo:** Use Turborepo/Nx to share types, utility functions, and constants across all platforms. Shared code resides in `packages/`.
 - **Microservices:** Backend is split into dedicated services: `Auth`, `Product`, `Order`, `Payment`, `Notification`, and an `API Gateway`. Services reside in `apps/services/`.
 - **Event-Driven Architecture:** Use Apache Kafka to decouple critical services and handle asynchronous processing (e.g., Order Placed $\rightarrow$ Payment $\rightarrow$ Notification).
@@ -34,12 +35,24 @@ A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and
   - Cache-Aside pattern with Redis for frequent queries.
 - **Tooling:** Centralized ESLint, Prettier, and TypeScript configurations.
 
+## Project Structure (Monorepo)
+- `apps/`: Deployable applications
+    - `services/`: Backend microservices (Auth, Product, Order, Payment, Notification)
+    - `user-site/`: Next.js frontend
+    - `admin-panel/`: React admin dashboard
+    - `mobile-app/`: Expo mobile app
+- `packages/`: Shared libraries and configurations
+    - `@repo/types`: Shared TypeScript interfaces and schemas
+    - `@repo/utils`: Common utility functions
+    - `@repo/config`: Centralized ESLint, Prettier, and TS configurations
+- `decisions/`: Architecture Decision Records (ADRs) documenting key technical choices.
+
 ## Current Progress (Phase 1 & 2)
-- [ ] Monorepo Setup (Turborepo/Nx)
-- [ ] Microservices Initialization (Auth, Product, Order, Payment, Notification)
-- [ ] API Gateway Setup
-- [ ] User Website (Next.js) & Admin Panel (React) & Mobile App (Expo) base setup
-- [ ] Infrastructure as Code (Terraform) for VPC, EKS, S3
-- [ ] Containerization (Docker) & CI/CD (Jenkins)
-- [ ] Kafka Cluster deployment on EKS
-- [ ] Observability (Prometheus & Grafana)
+- [x] Phase 1.1: Monorepo Foundation (Workspace, Shared Core, Tooling)
+- [ ] Phase 1.2: Contract-First API Design (OpenAPI Specs, Swagger, Type Generation)
+- [ ] Phase 1.3: Backend Microservices Base (API Gateway, Service Scaffolding, Kafka/Mongo)
+- [ ] Phase 1.4: Frontend Scaffolding (User Site, Admin Panel, Mobile App)
+- [ ] Phase 2.1: Local Development & Containerization (Docker, Compose)
+- [ ] Phase 2.2: Cloud Foundation (Terraform, VPC, EKS, S3)
+- [ ] Phase 2.3: CI/CD Pipeline & Deployment (Jenkins, K8s, Helm)
+- [ ] Phase 2.4: Production Middleware & Observability (Kafka, Prometheus, Grafana)

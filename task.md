@@ -36,20 +36,40 @@ A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and
 ## 📅 Execution Phases
 
 ### Phase 1: Initialization & Base Setup
-- [ ] **Monorepo Setup**
-    - [ ] Initialize Turborepo/Nx workspace
-    - [ ] Set up shared folder for types and common utils
-- [ ] **Microservices Initialization**
-    - [ ] Setup API Gateway (Nginx/Kong)
+
+#### 1.1 Monorepo Foundation (The "Skeleton")
+- [x] **Workspace Setup**
+    - [x] Initialize Turborepo/Nx workspace
+    - [x] Set up shared folder for types and common utils (`packages/`)
+- [x] **Tooling Baseline**
+    - [x] Configure centralized ESLint, Prettier, and TypeScript configs
+
+#### 1.2 Contract-First API Design (The "Blueprint")
+- [ ] **API Specifications**
+    - [ ] Initialize `api-specs` directory
+    - [ ] Create OpenAPI 3.0 specs for all services (Auth, Product, Order, Payment, Notification)
+- [ ] **Developer Portal**
+    - [ ] Integrate Swagger UI playground (`swagger-ui-express`)
+- [ ] **Type Automation**
+    - [ ] Setup `openapi-typescript` for automatic frontend type generation
+
+#### 1.3 Backend Microservices Base (The "Engine")
+- [ ] **API Gateway Setup**
+    - [ ] Initialize API Gateway (Nginx/Kong)
+- [ ] **Service Scaffolding**
     - [ ] Initialize Auth Service
     - [ ] Initialize Product Service
     - [ ] Initialize Order Service
     - [ ] Initialize Payment Service
     - [ ] Initialize Notification Service
-    - [ ] Configure inter-service communication via Kafka
+- [ ] **Data & Messaging Base**
+    - [ ] Setup MongoDB connection logic for all services
+    - [ ] Configure inter-service communication boilerplate via Kafka
+
+#### 1.4 Frontend Scaffolding (The "Face")
 - [ ] **User Website (Next.js)**
     - [ ] Initialize Next.js project with Tailwind CSS
-    - [ ] Setup basic routing and layout
+    - [ ] Setup basic routing and layout (App Router)
 - [ ] **Admin Panel (React)**
     - [ ] Initialize React project
     - [ ] Setup admin layout and navigation
@@ -58,25 +78,39 @@ A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and
     - [ ] Setup basic navigation and screens
 
 ### Phase 2: DevOps & Infrastructure
+
+#### 2.1 Local Development & Containerization (The "Local Loop")
+- [ ] **Dockerization**
+    - [ ] Create Dockerfiles for User Site, Admin Panel, and all Backend services
+- [ ] **Local Orchestration**
+    - [ ] Setup Docker Compose for local development (Services, MongoDB, Redis, local Kafka)
+- [ ] **Network Mocking**
+    - [ ] Configure local service discovery and networking aliases
+
+#### 2.2 Cloud Foundation (The "Bedrock")
 - [ ] **Infrastructure as Code (Terraform)**
     - [ ] Define VPC, Subnets, and Security Groups
     - [ ] Provision EKS Cluster and Node Groups
-    - [ ] Create and configure S3 Buckets
-- [ ] **Containerization**
-    - [ ] Create Dockerfiles for User Site, Admin Panel, and Backend
-    - [ ] Setup Docker Compose for local development
-- [ ] **CI/CD Pipeline (Jenkins)**
-    - [ ] Configure Jenkins pipeline for automated testing and build
-- [ ] **Kubernetes (EKS)**
+    - [ ] Create and configure S3 Buckets for media and backups
+    - [ ] Configure Terraform remote state (S3 + DynamoDB)
+
+#### 2.3 CI/CD Pipeline & Deployment (The "Pipeline")
+- [ ] **CI/CD Setup (Jenkins)**
+    - [ ] Configure Jenkins pipeline for automated testing, build, and push to ECR
+- [ ] **Kubernetes Orchestration**
     - [ ] Create K8s manifests (Deployments, Services, Ingress)
-    - [ ] Setup Helm charts for deployment
-- [ ] **Cloud Infrastructure (AWS)**
-    - [ ] Configure S3 Bucket for product images/media
-    - [ ] Setup EKS cluster environment
-    - [ ] Deploy and configure Apache Kafka cluster on EKS
-- [ ] **Observability (Grafana)**
+    - [ ] Setup Helm charts for versioned deployments
+- [ ] **Deployment Automation**
+    - [ ] Link Jenkins to EKS for automated rolling updates
+
+#### 2.4 Production Middleware & Observability (The "Vitals")
+- [ ] **Middleware Deployment**
+    - [ ] Deploy and configure production Apache Kafka cluster on EKS
+- [ ] **Observability Stack**
     - [ ] Install Prometheus and Grafana on EKS
     - [ ] Create monitoring dashboards for API health and performance
+- [ ] **Log Management**
+    - [ ] Setup centralized logging for microservices
 
 ### Phase 3: Feature Development (To be planned)
 - [ ] TBD
