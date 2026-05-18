@@ -1,5 +1,5 @@
 {
-  "name": "ecommerce-platform",
+  "name": "e-app",
   "private": true,
   "packageManager": "npm@11.12.1",
   "workspaces": [
