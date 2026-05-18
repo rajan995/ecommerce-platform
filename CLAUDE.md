@@ -1,4 +1,4 @@
-# CLAUDE.md - E-Commerce Platform
+# CLAUDE.md - e-app
 
 ## Project Overview
 A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and Mobile App, managed as a monorepo.
@@ -49,7 +49,7 @@ A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and
 
 ## Current Progress (Phase 1 & 2)
 - [x] Phase 1.1: Monorepo Foundation (Workspace, Shared Core, Tooling)
-- [ ] Phase 1.2: Contract-First API Design (OpenAPI Specs, Swagger, Type Generation)
+- [x] Phase 1.2: Contract-First API Design (OpenAPI Specs, Swagger, Type Generation)
 - [ ] Phase 1.3: Backend Microservices Base (API Gateway, Service Scaffolding, Kafka/Mongo)
 - [ ] Phase 1.4: Frontend Scaffolding (User Site, Admin Panel, Mobile App)
 - [ ] Phase 2.1: Local Development & Containerization (Docker, Compose)

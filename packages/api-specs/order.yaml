@@ -1,0 +1,123 @@
+openapi: 3.0.0
+info:
+  title: Order Service
+  version: 1.0.0
+  description: Order Processing and Management Service
+paths:
+  /api/v1/orders:
+    post:
+      summary: Create a new order
+      tags: [Order]
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+    get:
+      summary: List user orders
+      tags: [Order]
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: A list of orders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderListResponse'
+  /api/v1/orders/{id}:
+    get:
+      summary: Get order details
+      tags: [Order]
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Order details retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+    patch:
+      summary: Update order status (Admin only)
+      tags: [Order]
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusUpdateRequest'
+      responses:
+        '200':
+          description: Order status updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderResponse'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    OrderRequest:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+    OrderResponse:
+      type: object
+      properties:
+        id: { type: string }
+        userId: { type: string }
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+        totalAmount: { type: number }
+        status: { type: string, enum: [PENDING, PAID, SHIPPED, DELIVERED, CANCELLED] }
+        paymentId: { type: string }
+        createdAt: { type: string, format: date-time }
+    OrderListResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrderResponse'
+    OrderItem:
+      type: object
+      required: [productId, quantity]
+      properties:
+        productId: { type: string }
+        quantity: { type: integer }
+        price: { type: number }
+    StatusUpdateRequest:
+      type: object
+      required: [status]
+      properties:
+        status: { type: string, enum: [PENDING, PAID, SHIPPED, DELIVERED, CANCELLED] }

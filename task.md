@@ -1,4 +1,4 @@
-# E-Commerce Platform Task List
+# e-app Task List
 
 ## Project Overview
 A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and Mobile App, managed as a monorepo.
@@ -45,13 +45,13 @@ A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and
     - [x] Configure centralized ESLint, Prettier, and TypeScript configs
 
 #### 1.2 Contract-First API Design (The "Blueprint")
-- [ ] **API Specifications**
-    - [ ] Initialize `api-specs` directory
-    - [ ] Create OpenAPI 3.0 specs for all services (Auth, Product, Order, Payment, Notification)
-- [ ] **Developer Portal**
-    - [ ] Integrate Swagger UI playground (`swagger-ui-express`)
-- [ ] **Type Automation**
-    - [ ] Setup `openapi-typescript` for automatic frontend type generation
+- [x] **API Specifications**
+    - [x] Initialize `api-specs` directory
+    - [x] Create OpenAPI 3.0 specs for all services (Auth, Product, Order, Payment, Notification)
+- [x] **Developer Portal**
+    - [x] Integrate Swagger UI playground (`swagger-ui-express`)
+- [x] **Type Automation**
+    - [x] Setup `openapi-typescript` for automatic frontend type generation
 
 #### 1.3 Backend Microservices Base (The "Engine")
 - [ ] **API Gateway Setup**
