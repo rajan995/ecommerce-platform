@@ -67,15 +67,15 @@ A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and
     - [x] Configure inter-service communication boilerplate via Kafka
 
 #### 1.4 Frontend Scaffolding (The "Face")
-- [ ] **User Website (Next.js)**
-    - [ ] Initialize Next.js project with Tailwind CSS
-    - [ ] Setup basic routing and layout (App Router)
-- [ ] **Admin Panel (React)**
-    - [ ] Initialize React project
-    - [ ] Setup admin layout and navigation
-- [ ] **Mobile App (Expo)**
-    - [ ] Initialize Expo project
-    - [ ] Setup basic navigation and screens
+- [x] **User Website (Next.js)**
+    - [x] Initialize Next.js project with Tailwind CSS
+    - [x] Setup basic routing and layout (App Router)
+- [x] **Admin Panel (React)**
+    - [x] Initialize React project
+    - [x] Setup admin layout and navigation
+- [x] **Mobile App (Expo)**
+    - [x] Initialize Expo project
+    - [x] Setup basic navigation and screens
 
 ### Phase 2: DevOps & Infrastructure
 
