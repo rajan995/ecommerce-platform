@@ -54,17 +54,17 @@ A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and
     - [x] Setup `openapi-typescript` for automatic frontend type generation
 
 #### 1.3 Backend Microservices Base (The "Engine")
-- [ ] **API Gateway Setup**
-    - [ ] Initialize API Gateway (Nginx/Kong)
-- [ ] **Service Scaffolding**
-    - [ ] Initialize Auth Service
-    - [ ] Initialize Product Service
-    - [ ] Initialize Order Service
-    - [ ] Initialize Payment Service
-    - [ ] Initialize Notification Service
-- [ ] **Data & Messaging Base**
-    - [ ] Setup MongoDB connection logic for all services
-    - [ ] Configure inter-service communication boilerplate via Kafka
+- [x] **API Gateway Setup**
+    - [x] Initialize API Gateway (Nginx/Kong)
+- [x] **Service Scaffolding**
+    - [x] Initialize Auth Service
+    - [x] Initialize Product Service
+    - [x] Initialize Order Service
+    - [x] Initialize Payment Service
+    - [x] Initialize Notification Service
+- [x] **Data & Messaging Base**
+    - [x] Setup MongoDB connection logic for all services
+    - [x] Configure inter-service communication boilerplate via Kafka
 
 #### 1.4 Frontend Scaffolding (The "Face")
 - [ ] **User Website (Next.js)**

@@ -1,0 +1,26 @@
+{
+  "name": "@repo/auth",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@repo/common": "workspace:*",
+    "@repo/database": "workspace:*",
+    "@repo/messaging": "workspace:*",
+    "@repo/types": "workspace:*",
+    "fastify": "^4.0.0",
+    "dotenv": "^16.0.0",
+    "pino": "^8.0.0"
+  },
+  "devDependencies": {
+    "@repo/config": "workspace:*",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.0.0",
+    "ts-node-dev": "^2.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
