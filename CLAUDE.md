@@ -52,7 +52,7 @@ A full-scale e-commerce ecosystem consisting of a User Website, Admin Panel, and
 - [x] Phase 1.2: Contract-First API Design (OpenAPI Specs, Swagger, Type Generation)
 - [ ] Phase 1.3: Backend Microservices Base (API Gateway, Service Scaffolding, Kafka/Mongo)
 - [ ] Phase 1.4: Frontend Scaffolding (User Site, Admin Panel, Mobile App)
-- [ ] Phase 2.1: Local Development & Containerization (Docker, Compose)
+- [x] Phase 2.1: Local Development & Containerization (Docker, Compose)
 - [ ] Phase 2.2: Cloud Foundation (Terraform, VPC, EKS, S3)
 - [ ] Phase 2.3: CI/CD Pipeline & Deployment (Jenkins, K8s, Helm)
 - [ ] Phase 2.4: Production Middleware & Observability (Kafka, Prometheus, Grafana)
